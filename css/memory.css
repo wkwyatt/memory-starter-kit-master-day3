@@ -7,7 +7,7 @@ img {
 .mg_wrapper {
     width: 100%;
     max-width: 1024px;
-    margin:auto;
+    margin: 0 auto;
   /*set the width to 100%*/
   /*Also set a max-width so the pics don't pixelate*/
   /*margin*/
@@ -17,54 +17,26 @@ img {
 .mg_contents {
   position: relative;
   padding: 5px;
-  height: 100%;
+  height: 100%;   
+  max-height: 600px;
 /*  Must have a set position
   must have padding to accomodate absolute elements*/
 }
 
 /* game_level-1 styles */
 .mg_tile {
-    position: absolute;
+    position: relative;
     padding: 5px;
+    box-sizing: border-box;
+    max-height: 300px;  
+    float: left;
     width: 25%;
     height: 50%;
-  /*Set the width of each element*/
-  /*Set the height of each element*/
+
 }
 
+/*-----GAME LEVEL 1 STYLE-----*/
 /*Each element needs top % and left % so it appears in the right slot. The second one is done for you.*/
-.mg_tile-1 {
-  top: 0%;
-  left: 0%;
-}
-.mg_tile-2 {
-  top: 0%;
-  left: 25%;
-}
-.mg_tile-3 {
-  top: 0%;
-  left: 50%;
-}
-.mg_tile-4 {
-  top: 0%;
-  left: 75%;
-}
-.mg_tile-5 {
-  top: 50%;
-  left: 0%;
-}
-.mg_tile-6 {
-  top: 50%;
-  left: 25%;
-}
-.mg_tile-7 {
-  top: 50%;
-  left: 50%;
-}
-.mg_tile-8 {
-  top: 50%;
-  left: 75%;
-}
 
 .mg_tile-inner {
   position: relative;
@@ -74,6 +46,13 @@ img {
   /*The inner must have a position to accomodate the inside and outside elements*/
   /*Height and width must be counter-set*/
   /*Make the mouse a hand when over the tile*/
+}
+
+.mg_tile-inner img {
+  display: block;
+  height: 100%;
+  margin: auto;
+  max-width: 100%;
 }
 
 .mg_tile-inner:hover {
@@ -94,10 +73,11 @@ img {
 
 .mg_tile-outside {
   display: block;
-  background: url("../img/default/logo-bw.png") center no-repeat;
+  background: url("../img/default/logo-bw.png") 50% 50% no-repeat;
   width: 100%;
+  height: 100%;
   background-color: #e6e6e6;
-  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.8);
+  box-shadow: 0px 0px 0px 1px #787a80;
   /*Must use the background element and set the background to  ../img/default/logo-bw.png */
   /*Change the bg color so it's obviously not turned over*/
   /*Optional: create a box shadow*/
@@ -106,8 +86,10 @@ img {
 }
 
 .mg_tile-inside {
-  background-color: #c6c6c6;
+  background-color: #f8fafc;
   box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.8);
+  height: 100%;
+  width: 100%;
   display: none;
   /*set a bg-color*/
   /*Optional: create a box shadow*/
@@ -115,6 +97,16 @@ img {
 
 }
 
+.dropped {
+  -moz-transform: translateY(300px) rotateZ(120deg); /* rotate, translate, and disappear */
+  -webkit-transform: translateY(300px) rotateZ(120deg);
+  transform: translateY(300px) rotateZ(120deg);
+  opacity: 0;
+  -moz-transition: all 0.3s ease-in;
+  -webkit-transition: all 0.3s ease-in;
+  -ms-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;  
+}
 
 
 
